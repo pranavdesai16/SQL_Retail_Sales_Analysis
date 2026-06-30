@@ -1,6 +1,6 @@
 # Retail Sales Analysis SQL Project
 
-## Project Overview
+# Project Overview
 
 **Project Title**: Retail Sales Analysis  
 **Database**: `retail_sales_SQL_project`
@@ -9,7 +9,7 @@ This project is designed to demonstrate SQL skills and techniques typically used
 
 ---
 
-## Objectives
+# Objectives
 
 1. **Set up a retail sales database**: Create and populate a retail sales database with the provided sales data.
 2. **Data Cleaning**: Identify and remove any records with missing or null values.
@@ -18,9 +18,9 @@ This project is designed to demonstrate SQL skills and techniques typically used
 
 ---
 
-## Project Structure
+# Project Structure
 
-### 1. Database Setup
+# 1. Database Setup
 
 - **Database Creation**: The project starts by creating a database named `retail_sales_SQL_project`.
 - **Table Creation**: A table named `retail_sales` is created to store the sales data. The table structure includes columns for transaction ID, sale date, sale time, customer ID, gender, age, product category, quantity sold, price per unit, cost of goods sold (COGS), and total sale amount.
@@ -45,7 +45,7 @@ CREATE TABLE retail_sales
 ```
 ---
 
-### 2. Data Exploration & Cleaning
+# 2. Data Exploration & Cleaning
 
 - **Record Count**: Determine the total number of records in the dataset.
 - **Customer Count**: Find out how many unique customers are in the dataset.
@@ -71,12 +71,12 @@ WHERE
 ```
 ---
 
-### 3.📈 Business Questions Solved
+# 3.📈 Business Questions Solved
 
 The following SQL queries were developed to answer specific business questions:
 
 
-1. Write a SQL query to retrieve all columns for sales made on '2022-11-05'.
+### 1. Write a SQL query to retrieve all columns for sales made on '2022-11-05'.
 
 **SQL Query**
 
@@ -103,7 +103,7 @@ WHERE sale_date = '2022-11-05';
 
 ---
 
-2. Write a SQL query to retrieve all transactions where the category is 'Clothing' and the quantity sold is more than 4 in the month of Nov-2022.
+### 2. Write a SQL query to retrieve all transactions where the category is 'Clothing', and the quantity sold is more than 4 in the month of Nov-2022.
 
    
 **SQL Query**
@@ -144,7 +144,7 @@ WHERE
 
 ---
 
-3. Write a SQL query to calculate the total sales (total_sale) for each category.
+### 3. Write a SQL query to calculate the total sales (total_sale) for each category.
 
  
 **SQL Query**
@@ -168,7 +168,7 @@ GROUP BY 1;
 
 ---
 
-4. Write a SQL query to find the average age of customers who purchased items from the 'Beauty' category.
+### 4. Write a SQL query to find the average age of customers who purchased items from the 'Beauty' category.
 
    
 **SQL Query**
@@ -188,7 +188,7 @@ WHERE category = 'Beauty';
 
 ---
 
-5. Write a SQL query to find all transactions where the total_sale is greater than 1000.
+### 5. Write a SQL query to find all transactions where the total_sale is greater than 1000.
 
    
 **SQL Query**
@@ -513,7 +513,7 @@ WHERE total_sale > 1000;
 
 ---
 
-6. Write a SQL query to find the total number of transactions (transaction_id) made by each gender in each category.
+### 6. Write a SQL query to find the total number of transactions (transaction_id) made by each gender in each category.
 
    
 **SQL Query**
@@ -841,7 +841,7 @@ ORDER BY 1;
 
 ---
 
-7. Write a SQL query to calculate the average sale for each month. Find out the best-selling month in each year.
+### 7. Write a SQL query to calculate the average sale for each month. Find out the best-selling month in each year.
 
    
 **SQL Query**
@@ -873,7 +873,7 @@ WHERE rank = 1;
 
 ---
 
-8. Write a SQL query to find the top 5 customers based on the highest total sales.
+### 8. Write a SQL query to find the top 5 customers based on the highest total sales.
 
    
 **SQL Query**
@@ -900,7 +900,7 @@ LIMIT 5;
 
 ---
 
-9. Write a SQL query to find the number of unique customers who purchased items from each category.
+### 9. Write a SQL query to find the number of unique customers who purchased items from each category.
 
    
 **SQL Query**
@@ -923,7 +923,7 @@ GROUP BY category;
 
 ---
 
-10. Write a SQL query to create each shift and number of orders (Example: Morning < 12, Afternoon Between 12 & 17, Evening > 17).
+### 10. Write a SQL query to create each shift and the number of orders (Example: Morning < 12, Afternoon Between 12 & 17, Evening > 17).
 
    
 **SQL Query**
@@ -957,7 +957,7 @@ GROUP BY shift
 
 ---
 
-## Findings
+# Findings
 
 - **Customer Demographics**: The dataset includes customers from various age groups, with sales distributed across different categories such as Clothing and Beauty.
 - **High-Value Transactions**: Several transactions had a total sale amount greater than 1000, indicating premium purchases.
@@ -966,7 +966,7 @@ GROUP BY shift
   
 ---
 
-## Reports
+# Reports
 
 - **Sales Summary**: A detailed report summarizing total sales, customer demographics, and category performance.
 - **Trend Analysis**: Insights into sales trends across different months and shifts.
@@ -974,6 +974,6 @@ GROUP BY shift
 
 ---
 
-## Conclusion
+# Conclusion
 
 This project serves as a comprehensive introduction to SQL for data analysts, covering database setup, data cleaning, exploratory data analysis, and business-driven SQL queries. The findings from this project can help drive business decisions by providing insights into sales patterns, customer behaviour, and product performance.
