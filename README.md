@@ -1,6 +1,7 @@
 # 🛒 Retail Sales Analysis using SQL
 
-An end-to-end SQL project where retail sales data is cleaned, explored, and analyzed to answer business questions.
+This project demonstrates fundamental SQL skills used by data analysts to clean, explore, and analyze retail sales data. The project covers database creation, data cleaning, exploratory data analysis (EDA), and solving real-world business questions using SQL.
+
 
 **Skills Used**
 - SQL
