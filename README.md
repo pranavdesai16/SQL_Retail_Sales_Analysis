@@ -688,6 +688,16 @@ GROUP BY shift
 
 ---
 
+## 💡 Key Insights
+
+-   Electronics generated one of the highest revenues.
+-   Clothing recorded the largest number of orders.
+-   Beauty customers averaged approximately 40 years of age.
+-   High-value transactions occurred across multiple categories.
+-   Monthly and hourly trends can support demand forecasting.
+  
+---
+
 # Findings
 
 - **Customer Demographics**: The dataset includes customers from various age groups, with sales distributed across different categories such as Clothing and Beauty.
