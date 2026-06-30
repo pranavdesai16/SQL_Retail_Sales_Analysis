@@ -1,5 +1,16 @@
 # 🛒 Retail Sales Analysis using SQL
 
+```{=html}
+<p align="center">
+```
+![SQL](https://img.shields.io/badge/SQL-PostgreSQL-blue)
+![Status](https://img.shields.io/badge/Status-Completed-success)
+![Portfolio](https://img.shields.io/badge/Project-Data%20Analytics-orange)
+
+```{=html}
+</p>
+```
+
 An end-to-end SQL project where retail sales data is cleaned, explored, and analyzed to answer business questions.
 
 **Skills Used**
