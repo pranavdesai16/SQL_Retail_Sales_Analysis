@@ -7,12 +7,16 @@
 
 This project is designed to demonstrate SQL skills and techniques typically used by data analysts to explore, clean, and analyze retail sales data. The project involves setting up a retail sales database, performing exploratory data analysis (EDA), and answering specific business questions through SQL queries. This project is ideal for those who are starting their journey in data analysis and want to build a solid foundation in SQL.
 
+---
+
 ## Objectives
 
 1. **Set up a retail sales database**: Create and populate a retail sales database with the provided sales data.
 2. **Data Cleaning**: Identify and remove any records with missing or null values.
 3. **Exploratory Data Analysis (EDA)**: Perform basic exploratory data analysis to understand the dataset.
 4. **Business Analysis**: Use SQL to answer specific business questions and derive insights from the sales data.
+
+---
 
 ## Project Structure
 
@@ -39,6 +43,7 @@ CREATE TABLE retail_sales
     total_sale FLOAT
 );
 ```
+---
 
 ### 2. Data Exploration & Cleaning
 
@@ -64,6 +69,7 @@ WHERE
     gender IS NULL OR age IS NULL OR category IS NULL OR 
     quantity IS NULL OR price_per_unit IS NULL OR cogs IS NULL;
 ```
+---
 
 ### 3.📈 Business Questions Solved
 
@@ -95,6 +101,7 @@ WHERE sale_date = '2022-11-05';
 | 214             | 2022-11-05 | 16:31:00  | 53          | Male   | 20  | Beauty      | 2        | 30.0           | 8.1   | 60.0       |
 | 1265            | 2022-11-05 | 14:35:00  | 86          | Male   | 55  | Clothing    | 3        | 300.0          | 111.0 | 900.0      |
 
+---
 
 2. Write a SQL query to retrieve all transactions where the category is 'Clothing' and the quantity sold is more than 4 in the month of Nov-2022.
 
@@ -135,6 +142,7 @@ WHERE
 | 965             | 2022-11-27 | 21:45:00  | 84          | Male   | 22  | Clothing | 4        | 50.0           | 13.0  | 200.0      |
 | 1615            | 2022-11-17 | 13:43:00  | 82          | Female | 61  | Clothing | 4        | 25.0           | 13.5  | 100.0      |
 
+---
 
 3. Write a SQL query to calculate the total sales (total_sale) for each category.
 
@@ -158,6 +166,7 @@ GROUP BY 1;
 | Clothing    | 311070.0 | 701          |
 | Beauty      | 286840.0 | 612          |
 
+---
 
 4. Write a SQL query to find the average age of customers who purchased items from the 'Beauty' category.
 
@@ -177,6 +186,7 @@ WHERE category = 'Beauty';
 |---------|
 | 40.39   |
 
+---
 
 5. Write a SQL query to find all transactions where the total_sale is greater than 1000.
 
@@ -501,6 +511,7 @@ WHERE total_sale > 1000;
 | 211             | 2022-09-12 | 14:02:00  | 54          | Male   | 42  | Beauty      | 3        | 500.0          | 235.0 | 1500.0     |
 | 1211            | 2023-11-22 | 14:59:00  | 82          | Male   | 42  | Beauty      | 3        | 500.0          | 235.0 | 1500.0     |
 
+---
 
 6. Write a SQL query to find the total number of transactions (transaction_id) made by each gender in each category.
 
@@ -828,6 +839,7 @@ ORDER BY 1;
 | 211             | 2022-09-12 | 14:02:00  | 54          | Male   | 42  | Beauty      | 3        | 500.0          | 235.0 | 1500.0     |
 | 1211            | 2023-11-22 | 14:59:00  | 82          | Male   | 42  | Beauty      | 3        | 500.0          | 235.0 | 1500.0     |
 
+---
 
 7. Write a SQL query to calculate the average sale for each month. Find out the best-selling month in each year.
 
@@ -859,6 +871,7 @@ WHERE rank = 1;
 | 2022 | 7     | 541.3414634146342 |
 | 2023 | 2     | 535.531914893617  |
 
+---
 
 8. Write a SQL query to find the top 5 customers based on the highest total sales.
 
@@ -885,6 +898,7 @@ LIMIT 5;
 | 2           | 25295.0     |
 | 4           | 23580.0     |
 
+---
 
 9. Write a SQL query to find the number of unique customers who purchased items from each category.
 
@@ -907,6 +921,7 @@ GROUP BY category;
 | Clothing    | 149              |
 | Electronics | 144              |
 
+---
 
 10. Write a SQL query to create each shift and number of orders (Example: Morning < 12, Afternoon Between 12 & 17, Evening > 17).
 
@@ -940,6 +955,7 @@ GROUP BY shift
 | Evening   | 1062         |
 | Morning   | 558          |
 
+---
 
 ## Findings
 
@@ -947,12 +963,16 @@ GROUP BY shift
 - **High-Value Transactions**: Several transactions had a total sale amount greater than 1000, indicating premium purchases.
 - **Sales Trends**: Monthly analysis shows variations in sales, helping identify peak seasons.
 - **Customer Insights**: The analysis identifies the top-spending customers and the most popular product categories.
+  
+---
 
 ## Reports
 
 - **Sales Summary**: A detailed report summarizing total sales, customer demographics, and category performance.
 - **Trend Analysis**: Insights into sales trends across different months and shifts.
 - **Customer Insights**: Reports on top customers and unique customer counts per category.
+
+---
 
 ## Conclusion
 
