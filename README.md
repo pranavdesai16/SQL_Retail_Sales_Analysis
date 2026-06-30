@@ -67,10 +67,10 @@ WHERE
 
 ### 3.📈 Business Questions Solved
 
-
 The following SQL queries were developed to answer specific business questions:
 
-1. **Write a SQL query to retrieve all columns for sales made on '2022-11-05'. **
+
+1. Write a SQL query to retrieve all columns for sales made on '2022-11-05'.
 
 **SQL Query**
 
@@ -96,15 +96,21 @@ WHERE sale_date = '2022-11-05';
 | 1265            | 2022-11-05 | 14:35:00  | 86          | Male   | 55  | Clothing    | 3        | 300.0          | 111.0 | 900.0      |
 
 
-2. **Write a SQL query to retrieve all transactions where the category is 'Clothing' and the quantity sold is more than 4 in the month of Nov-2022**.
+2. Write a SQL query to retrieve all transactions where the category is 'Clothing' and the quantity sold is more than 4 in the month of Nov-2022.
 
    
 **SQL Query**
 
 ```sql
-SELECT *
+SELECT 
+	*
 FROM retail_sales
-WHERE sale_date = '2022-11-05';
+WHERE 
+	category = 'Clothing'
+	AND 
+	TO_CHAR(sale_date, 'YYYY-MM') = '2022-11'
+	AND 
+	quantity >=4;
 ```
 
 **Output**
@@ -130,15 +136,18 @@ WHERE sale_date = '2022-11-05';
 | 1615            | 2022-11-17 | 13:43:00  | 82          | Female | 61  | Clothing | 4        | 25.0           | 13.5  | 100.0      |
 
 
-3. **Write a SQL query to calculate the total sales (total_sale) for each category.**
+3. Write a SQL query to calculate the total sales (total_sale) for each category.
 
  
 **SQL Query**
 
 ```sql
-SELECT *
-FROM retail_sales
-WHERE sale_date = '2022-11-05';
+SELECT
+	category,
+	SUM(total_sale) AS net_sale,
+	COUNT(*) AS total_orders
+FROM retaiL_sales
+GROUP BY 1;
 ```
 
 **Output**
@@ -150,15 +159,16 @@ WHERE sale_date = '2022-11-05';
 | Beauty      | 286840.0 | 612          |
 
 
-4. **Write a SQL query to find the average age of customers who purchased items from the 'Beauty' category.**
+4. Write a SQL query to find the average age of customers who purchased items from the 'Beauty' category.
 
    
 **SQL Query**
 
 ```sql
-SELECT *
+SELECT 
+	ROUND(AVG(age), 2) AS avg_age
 FROM retail_sales
-WHERE sale_date = '2022-11-05';
+WHERE category = 'Beauty';
 ```
 
 **Output**
@@ -168,15 +178,16 @@ WHERE sale_date = '2022-11-05';
 | 40.39   |
 
 
-5. **Write a SQL query to find all transactions where the total_sale is greater than 1000.**
+5. Write a SQL query to find all transactions where the total_sale is greater than 1000.
 
    
 **SQL Query**
 
 ```sql
-SELECT *
-FROM retail_sales
-WHERE sale_date = '2022-11-05';
+SELECT 	
+	*
+FROm retail_sales
+WHERE total_sale > 1000;
 ```
 
 **Output**
@@ -491,15 +502,19 @@ WHERE sale_date = '2022-11-05';
 | 1211            | 2023-11-22 | 14:59:00  | 82          | Male   | 42  | Beauty      | 3        | 500.0          | 235.0 | 1500.0     |
 
 
-6. **Write a SQL query to find the total number of transactions (transaction_id) made by each gender in each category.**
+6. Write a SQL query to find the total number of transactions (transaction_id) made by each gender in each category.
 
    
 **SQL Query**
 
 ```sql
-SELECT *
+SELECT 
+	category,gender,
+	COUNT(*) AS total_transactions
 FROM retail_sales
-WHERE sale_date = '2022-11-05';
+GROUP BY 1, 2
+ORDER BY 1;
+
 ```
 
 **Output**
@@ -814,15 +829,27 @@ WHERE sale_date = '2022-11-05';
 | 1211            | 2023-11-22 | 14:59:00  | 82          | Male   | 42  | Beauty      | 3        | 500.0          | 235.0 | 1500.0     |
 
 
-7. **Write a SQL query to calculate the average sale for each month. Find out the best-selling month in each year**
+7. Write a SQL query to calculate the average sale for each month. Find out the best-selling month in each year.
 
    
 **SQL Query**
 
 ```sql
-SELECT *
-FROM retail_sales
-WHERE sale_date = '2022-11-05';
+SELECT 
+	year,
+	month,
+	avg_total_sales
+FROM 
+(
+	SELECT 	
+		EXTRACT(YEAR FROM sale_date) AS year,
+		EXTRACT(MONTH FROM sale_date) AS month,
+		AVG(total_sale) AS avg_total_sales,
+		RANK() OVER(PARTITION BY EXTRACT(YEAR FROM sale_date) ORDER BY AVG(total_sale) DESC) AS rank
+	FROM retail_sales
+	GROUP BY 1, 2
+) as t1
+WHERE rank = 1;
 ```
 
 **Output**
@@ -833,15 +860,19 @@ WHERE sale_date = '2022-11-05';
 | 2023 | 2     | 535.531914893617  |
 
 
-8. **Write a SQL query to find the top 5 customers based on the highest total sales **
+8. Write a SQL query to find the top 5 customers based on the highest total sales.
 
    
 **SQL Query**
 
 ```sql
-SELECT *
+SELECT 
+	customer_id,
+	SUM(total_sale) as total_sales
 FROM retail_sales
-WHERE sale_date = '2022-11-05';
+GROUP BY 1
+ORDER BY 2 DESC
+LIMIT 5;
 ```
 
 **Output**
@@ -855,15 +886,17 @@ WHERE sale_date = '2022-11-05';
 | 4           | 23580.0     |
 
 
-9. **Write a SQL query to find the number of unique customers who purchased items from each category.**
+9. Write a SQL query to find the number of unique customers who purchased items from each category.
 
    
 **SQL Query**
 
 ```sql
-SELECT *
+SELECT 
+	category,
+	COUNT(DISTINCT customer_id) as unique_customers
 FROM retail_sales
-WHERE sale_date = '2022-11-05';
+GROUP BY category;
 ```
 
 **Output**
@@ -875,15 +908,28 @@ WHERE sale_date = '2022-11-05';
 | Electronics | 144              |
 
 
-10. **Write a SQL query to create each shift and number of orders (Example: Morning <12, Afternoon Between 12 & 17, Evening >17)**
+10. Write a SQL query to create each shift and number of orders (Example: Morning < 12, Afternoon Between 12 & 17, Evening > 17).
 
    
 **SQL Query**
 
 ```sql
-SELECT *
+WITH hourly_sale 
+AS
+(
+SELECT *,
+CASE
+	WHEN EXTRACT(HOUR FROM sale_time) < 12 THEN 'Morning'
+	WHEN EXTRACT(HOUR FROM sale_time) BETWEEN 12 AND 17 THEN 'Afternoon'
+	ELSE 'Evening'
+END as shift
 FROM retail_sales
-WHERE sale_date = '2022-11-05';
+)
+SELECT 
+	shift,
+	COUNT(*) AS total_orders
+FROM hourly_sale
+GROUP BY shift
 ```
 
 **Output**
