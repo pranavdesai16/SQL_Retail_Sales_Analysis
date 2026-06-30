@@ -1,4 +1,18 @@
-# Retail Sales Analysis SQL Project
+# 🛒 Retail Sales Analysis using SQL
+
+An end-to-end SQL project where retail sales data is cleaned, explored, and analyzed to answer business questions.
+
+**Skills Used**
+- SQL
+- Data Cleaning
+- Exploratory Data Analysis (EDA)
+- Aggregate Functions
+- GROUP BY
+- CASE Statements
+- Date Functions
+- Window Functions (if used)
+
+Database: PostgreSQL
 
 # 📌 Project Overview
 
