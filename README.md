@@ -233,7 +233,8 @@ WHERE total_sale > 1000;
 ```
 
 **Output**
-##(Limit to 50 due to size constraint)
+
+(Limit to 50 due to size constraint)
 
 | transactions_id | sale_date  | sale_time | customer_id | gender | age | category    | quantity | price_per_unit | cogs  | total_sale |
 |-----------------|------------|-----------|-------------|--------|-----|-------------|----------|----------------|-------|------------|
